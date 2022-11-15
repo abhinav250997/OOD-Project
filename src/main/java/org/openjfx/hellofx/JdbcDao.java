@@ -25,7 +25,7 @@ public class JdbcDao {
         // try-with-resource statement will auto close the connection.
         try (
                 
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ood_project?useSSL=false","root","Abhi$0454");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ood_project?useSSL=false&allowPublicKeyRetrieval=true","root","Amma@1806");
             PreparedStatement preparedStatement = connection.prepareStatement(INSERT_QUERY) ){
             preparedStatement.setString(1, fullName);
             preparedStatement.setString(2, emailId);
@@ -43,7 +43,7 @@ public class JdbcDao {
     {
         List<Insurance> plans = new ArrayList<>();
         try(
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ood_project?useSSL=false","root","Abhi$0454");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ood_project?useSSL=false&allowPublicKeyRetrieval=true","root","Amma@1806");
             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_QUERY);) 
         {
             preparedStatement.setString(1,emailId);
@@ -77,7 +77,7 @@ public class JdbcDao {
     public boolean searchRecord(String emailId, String password) throws SQLException
     {
         try(
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ood_project?useSSL=false","root","Abhi$0454");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ood_project?useSSL=false&allowPublicKeyRetrieval=true","root","Amma@1806");
             PreparedStatement preparedStatement = connection.prepareStatement(SEARCH_QUERY);) 
         {
             preparedStatement.setString(1,emailId);
