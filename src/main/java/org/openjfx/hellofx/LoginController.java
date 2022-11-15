@@ -1,41 +1,32 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
 package org.openjfx.hellofx;
 
-/**
- *
- * @author abhishekvenkata
- */
-import org.openjfx.hellofx.PostLoginController;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
-import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.text.Text;
-import javafx.stage.Stage;
 import javafx.stage.Window;
 
-public class RegisterController{
+/**
+ * FXML Controller class
+ *
+ * @author abhishekvenkata
+ */
+public class LoginController implements Initializable {
 
-    @FXML
-    private TextField fullNameField;
-
+    /**
+     * Initializes the controller class.
+     */
     @FXML
     private TextField emailIdField;
 
@@ -46,27 +37,12 @@ public class RegisterController{
     private Button submitButton;
     
     @FXML
-    private Label insurance_plan;
-    
-    @FXML
-    private AnchorPane anchor;
-    
-    @FXML
-    private Scene scene;
-
-    @FXML
-    public void register(ActionEvent event) throws SQLException, IOException {
+    public void login(ActionEvent event) throws SQLException, IOException {
 
         Window owner = submitButton.getScene().getWindow();
 
-        System.out.println(fullNameField.getText());
         System.out.println(emailIdField.getText());
         System.out.println(passwordField.getText());
-        if (fullNameField.getText().isEmpty()) {
-            showAlert(Alert.AlertType.ERROR, owner, "Form Error!",
-                "Please enter your name");
-            return;
-        }
 
         if (emailIdField.getText().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "Form Error!",
@@ -79,17 +55,20 @@ public class RegisterController{
             return;
         }
 
-        String fullName = fullNameField.getText();
         String emailId = emailIdField.getText();
         String password = passwordField.getText();
 
         JdbcDao jdbcDao = new JdbcDao();
-        jdbcDao.insertRecord(fullName, emailId, password);
-
-        showAlert(Alert.AlertType.CONFIRMATION, owner, "Registration Successful!",
-            "Welcome " + fullNameField.getText());
-       
-        switchToLogin();
+        boolean check = jdbcDao.searchRecord(emailId, password);
+ 
+        if(check)
+        {
+            showAlert(Alert.AlertType.CONFIRMATION, owner, "Registration Successful!","Welcome ");
+            switchToPostLogin();
+            return;
+        }
+        showAlert(Alert.AlertType.ERROR, owner, "Login unsuccessful","Try again");
+        
     }
 
     private static void showAlert(Alert.AlertType alertType, Window owner, String title, String message) {
@@ -100,18 +79,14 @@ public class RegisterController{
         alert.initOwner(owner);
         alert.show();
     }
-    
-    @FXML
-    private void switchToHome() throws IOException {
-        App.setRoot("Home");
-    }
-    
-    @FXML
-    private void switchToLogin() throws IOException {
-        
-        
-        App.setRoot("Login");
-    }
 
-
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        // TODO
+    }    
+        
+    @FXML
+    private void switchToPostLogin() throws IOException{
+        App.setRoot("PostLogin");
+    }
 }

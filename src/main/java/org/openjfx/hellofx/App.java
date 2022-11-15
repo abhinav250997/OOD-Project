@@ -7,6 +7,8 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.lang.ModuleLayer.Controller;
+import javafx.scene.control.Label;
 
 /**
  * JavaFX App
@@ -18,7 +20,7 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         System.out.println(getClass());
-        scene = new Scene(loadFXML("primary"), 640, 480);
+        scene = new Scene(loadFXML("Home"), 640, 480);
         stage.setScene(scene);
         stage.show();
     }
@@ -32,6 +34,7 @@ public class App extends Application {
         return fxmlLoader.load();
     }
 
+    
     public static void main(String[] args) {
         launch();
     }

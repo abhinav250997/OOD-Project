@@ -20,12 +20,25 @@
             <artifactId>javafx-fxml</artifactId>
             <version>19</version>
         </dependency>
+        
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.15</version>
         </dependency>
+        <dependency>
+            <groupId>com.gluonhq</groupId>
+            <artifactId>charm-down-core</artifactId>
+            <version>3.8.0</version>
+        </dependency>
+
     </dependencies>
+    <repositories>
+        <repository>
+        <id>gluon-nexus-repository</id>
+        <url>http://nexus.gluonhq.com/nexus/content/repositories/releases/</url>
+        </repository>
+    </repositories>
     <build>
         <plugins>
             <plugin>
