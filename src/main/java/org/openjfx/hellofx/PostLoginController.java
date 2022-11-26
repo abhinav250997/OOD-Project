@@ -9,11 +9,14 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
@@ -32,6 +35,9 @@ import javafx.stage.Window;
 public class PostLoginController implements Initializable {
     
     @FXML
+    private Label headval;
+    
+    @FXML
     private Label email_id;
 
     @FXML
@@ -47,6 +53,15 @@ public class PostLoginController implements Initializable {
     private Label insurance_type;
     
     @FXML
+    private Button add_plan;
+    
+    @FXML
+    private Button update_plan;
+    
+    @FXML
+    private Button delete_plan;
+    
+    @FXML
     private void switchToPlanlist() throws IOException {
         App.setRoot("plans");
     }
@@ -55,7 +70,8 @@ public class PostLoginController implements Initializable {
         
         List<Insurance> plans = new ArrayList<>();
         JdbcDao jdbcDao = new JdbcDao();
-        plans = jdbcDao.getRecord("tiruchunapalli.a@northeastern.edu");
+        UserSession user = UserSession.getInstance();
+        plans = jdbcDao.getRecord(user.getUserName());
         return plans;
     }
             
@@ -70,9 +86,21 @@ public class PostLoginController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         
         //Insurance insure = new Insurance();
+        UserSession user = UserSession.getInstance();
+        headval.setText("Hi "+user.getUserName());
         List<Insurance> plans = new ArrayList<>();
         try {
             plans = getPlans();
+            Iterator i = plans.iterator();
+            if(i.hasNext())
+            {
+                add_plan.setVisible(false);
+            }
+            else
+            {
+                update_plan.setVisible(false);
+                delete_plan.setVisible(false);
+            }
         } catch (SQLException ex) {
             Logger.getLogger(PostLoginController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
@@ -80,13 +108,63 @@ public class PostLoginController implements Initializable {
         }
         //insurance_plan.setText("Insurance values");
         
-        //plans.forEach((n) -> email_id.setText(""+n.email_id));
-        //plans.forEach((n) -> insurance_name.setText(""+n.insurance_name));
-        plans.forEach((n) -> premium.setText(""+n.monthly_premium));
-        plans.forEach((n) -> tenure.setText(""+n.tenure));
-
-        //plans.forEach((n) -> System.out.println(n.insurance_type));
-        
+        Iterator<Insurance> iterate = plans.iterator();
+        while(iterate.hasNext())
+        {   
+                Insurance val = new Insurance();
+                val = iterate.next();
+                premium.setText(""+val.monthly_premium);
+                tenure.setText(""+ val.tenure);
+                insurance_name.setText(val.insurance_name);
+                email_id.setText(val.email_id);
+                insurance_type.setText(val.insurance_type);
+                System.out.println(val.insurance_type);
+        }
+        //Button add_plan = new Button();
+        add_plan.setOnAction(new BtHandler());
+        update_plan.setOnAction(new BtHandler());
+        delete_plan.setOnAction(new BtHandler2());
+        return;
+    }
+    
+    class BtHandler2 implements EventHandler   
+    {       
+        @Override
+        public void handle(Event t) {
+            System.out.println("Button handle event");
+            JdbcDao jdbcdao = new JdbcDao();
+            String email = email_id.getText();
+            jdbcdao.deleteRecord(email);
+            try {
+                App.setRoot("PostLogin");
+            } catch (IOException ex) {
+                Logger.getLogger(PostLoginController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+    
+    class BtHandler implements EventHandler   
+    {       
+        @Override
+        public void handle(Event t) {
+            try {
+                System.out.println("Button handle event");
+                App.setRoot("addplan");
+            } catch (IOException ex) {
+                Logger.getLogger(PostLoginController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+    
+    @FXML
+    private void switchToLogin() throws IOException{
+        App.setRoot("Login");
+    }
+    
+    
+    @FXML
+    private void switchToLog() throws IOException{
+        App.setRoot("Log");
     }
 }
 

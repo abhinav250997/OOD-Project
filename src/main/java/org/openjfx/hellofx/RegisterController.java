@@ -83,13 +83,22 @@ public class RegisterController{
         String emailId = emailIdField.getText();
         String password = passwordField.getText();
 
-        JdbcDao jdbcDao = new JdbcDao();
-        jdbcDao.insertRecord(fullName, emailId, password);
-
-        showAlert(Alert.AlertType.CONFIRMATION, owner, "Registration Successful!",
+        if(emailId.endsWith("@northeastern.edu"))
+        {
+            JdbcDao jdbcDao = new JdbcDao();
+            jdbcDao.insertRecord(fullName, emailId, password);
+        
+            showAlert(Alert.AlertType.CONFIRMATION, owner, "Registration Successful!",
             "Welcome " + fullNameField.getText());
        
-        switchToLogin();
+            switchToLogin();
+        }
+        else
+        {
+            showAlert(Alert.AlertType.ERROR, owner, "Registration Unuccessful!",
+            "Email must end with @northeastern.edu ");
+            
+        }
     }
 
     private static void showAlert(Alert.AlertType alertType, Window owner, String title, String message) {
@@ -111,6 +120,13 @@ public class RegisterController{
         
         
         App.setRoot("Login");
+    }
+    
+    @FXML
+    private void switchToRegister() throws IOException {
+        
+        
+        App.setRoot("primary");
     }
 
 
