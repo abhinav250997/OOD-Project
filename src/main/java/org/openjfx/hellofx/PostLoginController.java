@@ -109,15 +109,17 @@ public class PostLoginController implements Initializable {
         //insurance_plan.setText("Insurance values");
         
         Iterator<Insurance> iterate = plans.iterator();
+        String emailid = "";
         while(iterate.hasNext())
         {   
                 Insurance val = new Insurance();
                 val = iterate.next();
-                premium.setText(""+val.monthly_premium);
-                tenure.setText(""+ val.tenure);
-                insurance_name.setText(val.insurance_name);
-                email_id.setText(val.email_id);
-                insurance_type.setText(val.insurance_type);
+                premium.setText("Monthly premium: "+val.monthly_premium+ " Dollars");
+                tenure.setText("Tenure of payment: "+ val.tenure+" months");
+                insurance_name.setText("Insurance Name: "+val.insurance_name);
+                email_id.setText("Email Id: "+val.email_id);
+                emailid = val.email_id;
+                insurance_type.setText("Insurance type: "+val.insurance_type);
                 System.out.println(val.insurance_type);
         }
         //Button add_plan = new Button();
@@ -133,7 +135,9 @@ public class PostLoginController implements Initializable {
         public void handle(Event t) {
             System.out.println("Button handle event");
             JdbcDao jdbcdao = new JdbcDao();
-            String email = email_id.getText();
+            UserSession user = UserSession.getInstance();
+            
+            String email = user.getUserName();
             jdbcdao.deleteRecord(email);
             try {
                 App.setRoot("PostLogin");

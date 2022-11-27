@@ -21,6 +21,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Window;
 
@@ -33,6 +34,8 @@ import javafx.stage.Window;
  */
 public class AddplanController implements Initializable {
     
+    @FXML
+    private Label welcome_string;
     @FXML
     private ComboBox insurance_type;
     @FXML
@@ -66,6 +69,7 @@ public class AddplanController implements Initializable {
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        
         insurance_type.setItems(ins_type);
         insurance_name.setItems(ins_name);
         tenure.setItems(ten);
@@ -83,6 +87,7 @@ public class AddplanController implements Initializable {
         Iterator i = plans.iterator();
         if(i.hasNext())
         {
+           welcome_string.setText("Update your plan");
            Insurance plan = new Insurance();
            plan = plans.get(0);
            insurance_type.setValue(plan.getInsurance_type());
@@ -94,6 +99,7 @@ public class AddplanController implements Initializable {
         }
         else
         {
+           welcome_string.setText("Add New plan");
            plan_button.setVisible(true);
            update_button.setVisible(false); 
         }
@@ -214,6 +220,16 @@ public class AddplanController implements Initializable {
     @FXML
     private void switchToPostLogin() throws IOException {
         App.setRoot("PostLogin");
+    }
+    
+    @FXML
+    private void switchToTerms() throws IOException {
+        App.setRoot("terms");
+    }
+    
+    @FXML
+    private void switchtoAddPlan() throws IOException {
+        App.setRoot("addplan");
     }
     
     @FXML public List<Insurance> getPlans(String emailid) throws SQLException, IOException {

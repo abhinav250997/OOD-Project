@@ -2,6 +2,7 @@ org/openjfx/hellofx/UserSession.class
 org/openjfx/hellofx/Insurance.class
 org/openjfx/hellofx/HomeController.class
 org/openjfx/hellofx/App.class
+org/openjfx/hellofx/TermsController.class
 module-info.class
 org/openjfx/hellofx/LoginController.class
 org/openjfx/hellofx/User.class

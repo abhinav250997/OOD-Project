@@ -42,6 +42,11 @@ public final class UserSession {
         }
         return instance;
     }
+    
+    @FXML
+    public static void setInstance() {
+        instance = null;
+    }
 
     @FXML
     public String getUserName() {

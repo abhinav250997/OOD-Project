@@ -8,29 +8,29 @@
 
 <AnchorPane fx:id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="454.0" prefWidth="626.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.hellofx.PostLoginController">
    <children>
-      <Label fx:id="headval" layoutX="62.0" layoutY="33.0" prefHeight="33.0" prefWidth="215.0" />
+      <Label fx:id="headval" layoutX="62.0" layoutY="33.0" prefHeight="33.0" prefWidth="331.0" />
       <Label fx:id="insurance_name" layoutX="62.0" layoutY="75.0" prefHeight="33.0" prefWidth="215.0">
          <font>
             <Font size="19.0" />
          </font>
       </Label>
-      <Label fx:id="insurance_type" layoutX="62.0" layoutY="108.0" prefHeight="33.0" prefWidth="215.0">
+      <Label fx:id="insurance_type" layoutX="62.0" layoutY="108.0" prefHeight="33.0" prefWidth="372.0">
          <font>
             <Font size="19.0" />
          </font>
       </Label>
-      <Hyperlink layoutX="475.0" layoutY="21.0" prefHeight="24.0" prefWidth="68.0" onAction="#switchToLog" text="Show Log" />
-      <Label fx:id="premium" layoutX="62.0" layoutY="147.0" prefHeight="33.0" prefWidth="215.0">
+      <Hyperlink layoutX="475.0" layoutY="21.0" onAction="#switchToLog" prefHeight="24.0" prefWidth="68.0" text="Show Log" />
+      <Label fx:id="premium" layoutX="62.0" layoutY="147.0" prefHeight="33.0" prefWidth="320.0">
          <font>
             <Font size="19.0" />
          </font>
       </Label>
-      <Label fx:id="tenure" layoutX="62.0" layoutY="180.0" prefHeight="33.0" prefWidth="215.0">
+      <Label fx:id="tenure" layoutX="62.0" layoutY="180.0" prefHeight="33.0" prefWidth="337.0">
          <font>
             <Font size="19.0" />
          </font>
       </Label>
-      <Label fx:id="email_id" layoutX="62.0" layoutY="217.0" prefHeight="33.0" prefWidth="314.0">
+      <Label fx:id="email_id" layoutX="62.0" layoutY="217.0" prefHeight="33.0" prefWidth="406.0">
          <font>
             <Font size="19.0" />
          </font>

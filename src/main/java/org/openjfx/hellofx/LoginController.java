@@ -66,6 +66,7 @@ public class LoginController implements Initializable {
         {
             
             showAlert(Alert.AlertType.CONFIRMATION, owner, "Admin Login Successful!","Welcome back");
+            UserSession.setInstance();
             HashSet<String> privileges = new HashSet<>();          
             UserSession.getInstance(emailId, privileges);
             switchToAdminLogin();
@@ -77,7 +78,8 @@ public class LoginController implements Initializable {
         if(check)
         {
             showAlert(Alert.AlertType.CONFIRMATION, owner, "Login Successful!","Welcome ");
-            HashSet<String> privileges = new HashSet<>();          
+            HashSet<String> privileges = new HashSet<>(); 
+            UserSession.setInstance();
             UserSession.getInstance(emailId, privileges);
             switchToPostLogin();
             return;
