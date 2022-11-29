@@ -14,7 +14,7 @@ import javafx.fxml.FXML;
 public class TermsController {
     
     @FXML
-    private void switchtoAddPlan() throws IOException {
-        App.setRoot("addplan");
+    private void switchtoHome() throws IOException {
+        App.setRoot("Home");
     }
 }

@@ -30,4 +30,11 @@ public class HomeController {
     private void switchToLogin() throws IOException{
         App.setRoot("Login");
     }
+    
+    @FXML
+    private void switchToTeam() throws IOException{
+        App.setRoot("team");
+    }
+    
+    
 }

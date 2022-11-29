@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.hellofx.HomeController">
+<VBox prefHeight="800.0" prefWidth="674.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.hellofx.TermsController">
   <children>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="800.0" prefWidth="674.0" VBox.vgrow="ALWAYS">
       <children>
         <Label alignment="CENTER" contentDisplay="TOP" layoutX="111.0" layoutY="16.0" lineSpacing="1.0" opacity="0.53" prefHeight="82.0" prefWidth="407.0" style="&#10;" text="Find insurance plans&#10;for the whole family" textAlignment="CENTER" textOverrun="LEADING_WORD_ELLIPSIS" wrapText="false">
           <font>
@@ -22,17 +22,12 @@
                   <Image url="@../../../OODLogo.jpeg" />
                </image>
             </ImageView>
-            <Hyperlink layoutX="555.0" layoutY="23.0" onAction="#switchToLogin" prefHeight="35.0" prefWidth="71.0" text="Sign In">
-               <font>
-                  <Font size="20.0" />
-               </font> 
-            </Hyperlink>
-            <Hyperlink layoutX="32.0" layoutY="146.0" onAction="#switchToPrimary" prefHeight="54.0" prefWidth="248.0" text="Is this your first time? &#10;REGISTER HERE!" />
-            <Hyperlink layoutX="549.0" layoutY="359.0" onAction="#switchToTeam" text="Our Team">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Hyperlink>
+            <Hyperlink layoutX="522.0" layoutY="35.0" onAction="#switchtoHome" prefHeight="23.0" prefWidth="93.0" text="Back to Home" />
+            <ImageView fitHeight="283.0" fitWidth="426.0" layoutX="126.0" layoutY="177.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../IMG_6205.jpeg" />
+               </image>
+            </ImageView>
       </children>
     </AnchorPane>
   </children>

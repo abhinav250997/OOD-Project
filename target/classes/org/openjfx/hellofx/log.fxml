@@ -13,7 +13,6 @@
       <children>
             <Label layoutX="57.0" layoutY="51.0" prefHeight="26.0" prefWidth="99.0" text="User Action Log:" />
             <Hyperlink layoutX="496.0" layoutY="14.0" onAction="#switchToPostLogin" text="Back" />
-            <Hyperlink layoutX="547.0" layoutY="14.0" onAction="#switchToLogin" text="Sign Out" />
             <Button fx:id="showlog" contentDisplay="CENTER" layoutX="183.0" layoutY="51.0" mnemonicParsing="false" onAction="#printlog" text="Show" textFill="WHITE" />
             <TextArea fx:id="log" layoutX="53.0" layoutY="94.0" prefHeight="216.0" prefWidth="568.0" text="Log: " />
       </children>
