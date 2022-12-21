@@ -30,11 +30,22 @@ public final class UserSession {
     }
     
     @FXML
+    public static UserSession getInstance()
+    {
+        return instance;
+    }
+    
+    @FXML
     public static UserSession getInstance(String userName, Set<String> privileges) {
         if(instance == null) {
             instance = new UserSession(userName, privileges);
         }
         return instance;
+    }
+    
+    @FXML
+    public static void setInstance() {
+        instance = null;
     }
 
     @FXML

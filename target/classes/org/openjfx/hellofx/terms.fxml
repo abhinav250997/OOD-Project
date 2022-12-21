@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox prefHeight="800.0" prefWidth="674.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.hellofx.TermsController">
+  <children>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="800.0" prefWidth="674.0" VBox.vgrow="ALWAYS">
+      <children>
+        <Label alignment="CENTER" contentDisplay="TOP" layoutX="111.0" layoutY="16.0" lineSpacing="1.0" opacity="0.53" prefHeight="82.0" prefWidth="407.0" style="&#10;" text="Find insurance plans&#10;for the whole family" textAlignment="CENTER" textOverrun="LEADING_WORD_ELLIPSIS" wrapText="false">
+          <font>
+            <Font name="System Bold" size="31.0" />
+          </font>
+        </Label>
+            <ImageView fitHeight="77.0" fitWidth="71.0" layoutX="32.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../OODLogo.jpeg" />
+               </image>
+            </ImageView>
+            <Hyperlink layoutX="522.0" layoutY="35.0" onAction="#switchtoAddPlan" prefHeight="23.0" prefWidth="93.0" text="Back to Plan" />
+            <Text layoutX="20.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Terms of Insurance&#10;1.  Insurance name are divided into two sections Health/Car&#10;     a. Students/Faculty can have either their health or car insurance covered by AASG with their Id&#10;     b. For Health Insurance &#10;          i.  Silver plan covers 50 percent charges, Gold Plan covers 75 percent and Platinum plan &#10;              covers for 100 percent&#10;          ii. Tenure mentions the period for which the company is responsible for insurance.&#10;          iii. For 36 months and Silver -&gt; select 250$ *&#10;          iv. For 36 months and Gold -&gt;  select 350$ *&#10;           v. For 36 months and Platinum -&gt; Select 450$ *&#10;          vi. For 48 months and Silver -&gt; Select 250$ **&#10;         vii. For 48 months and Gold -&gt; Select  350$ **&#10;        viii. For 48 months and Platinum -&gt; Select 450$ **&#10;          ix. For 96 months and Silver -&gt; Select 250 $ ***&#10;           x. For 96 months and Gold -&gt; Select 350$ ***&#10;          xi. For 96 months and Platinum -&gt; Select 450$ ***&#10;         xii. For * - payment is for 6 months, ** - payment is for 8 months, *** - payment is for 16 months&#10;   c. For Car Insurance&#10;        i. Silver plan covers for Engine and accident damages of your car, Gold Plan covers for all damages of your car.&#10;           and Platinum plan covers for damages of your car and any other car you damage in an accident&#10;       ii. Tenure mentions the period for which the company is responsible for insurance.&#10;       iii. For 36 months and Silver -&gt; select 250$ *&#10;       iv. For 36 months and Gold -&gt;  select 350$ *&#10;        v. For 36 months and Platinum -&gt; Select 450$ *&#10;       vi. For 48 months and Silver -&gt; Select 250$ **&#10;      vii. For 48 months and Gold -&gt; Select  350$ **&#10;     viii. For 48 months and Platinum -&gt; Select 450$ **&#10;       ix. For 96 months and Silver -&gt; Select 250 $ ***&#10;        x. For 96 months and Gold -&gt; Select 350$ ***&#10;       xi. For 96 months and Platinum -&gt; Select 450$ ***&#10;       xii. For * - payment is for 3 months, ** - payment is for 5 months, *** - payment is for 9 months" wrappingWidth="612.4599609375" />
+      </children>
+    </AnchorPane>
+  </children>
+</VBox>
